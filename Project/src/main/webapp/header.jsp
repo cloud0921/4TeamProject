@@ -16,7 +16,7 @@ input[id*="popup"] + label {position:absolute;top:3.2%;left:90%;transform:transl
 * {padding:0;margin:0;line-height:1;} /* 기본 브라우저 리셋 스타일 */
 
 input[id*="popup"] {display:none;}
-input[id*="popup"] + label {display:inline-block;padding:20px;background:rgb(105,34,38);color:#fff;}
+input[id*="popup"] + label {display:inline-block;padding:10px;background:rgb(105,34,38);color:#fff;}
 input[id*="popup"] + label + div {position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;}
 input[id*="popup"] + label + div > div {position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:280px;background:#fff;z-index:2;}
 input[id*="popup"] + label + div > div > label {position:absolute;top:0%;right:0%;transform:translate(40%,-40%);padding:20px;background:#dd5347;border-radius:100%;z-index:1;}
@@ -49,7 +49,7 @@ input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
       <li><a href="Revenue.jsp" >흥행예측</a></li><br><br>
       </ul>
 <ul class="ul1">
-      <li><a href="" >박스오피스</a></li><br><br>
+      <li><a href="totalbox.jsp" >박스오피스</a></li><br><br>
       </ul>
 <ul class="ul1">
       <li><a href="" >장르</a></li><br><br>
@@ -63,7 +63,7 @@ input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
     <ul class="ul1">
       <li><a href="mainpage.jsp" >홈</a></li>
       <li><a href="Revenue.jsp" >흥행예측</a></li>
-      <li><a href="" >박스오피스</a></li>
+      <li><a href="totalbox.jsp" >박스오피스</a></li>
       <li><a href="" >장르</a></li>
       <li><a href="" >배우</a></li>
       </ul>

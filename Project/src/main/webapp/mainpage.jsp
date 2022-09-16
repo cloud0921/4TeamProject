@@ -243,7 +243,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 			<a href="">
 				<div class="screen">
 					<div class="top">전지현</div>
-					<div class="bottom">출연작:<br>변호인(2013)<br> 관상(2013)<br> 설국열차(2013)<br>택시운전사(2017)<br>기생충(2022)</div>
+					<div class="bottom">출연작:<br>도둑들(2012)<br> 베를린(2013)<br> 암살(2015)</div>
 					<img src="https://file2.nocutnews.co.kr/newsroom/image/2018/09/22/20180922082853277339_0_656_850.jpg">
 				</div>
 			</a>
@@ -252,7 +252,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 			<a href="">
 				<div class="screen">
 					<div class="top">손예진</div>
-					<div class="bottom">출연작:<br>변호인(2013)<br> 관상(2013)<br> 설국열차(2013)<br>택시운전사(2017)<br>기생충(2022)</div>
+					<div class="bottom">출연작:<br>타워(2012)<br> 베를린(2013)<br> 암살(2015)</div>
 					<img src="https://spnimage.edaily.co.kr/images/Photo/files/NP/S/2016/02/PS16021600060.jpg">
 				</div>
 			</a>
@@ -261,7 +261,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 			<a href="">
 				<div class="screen">
 					<div class="top">김혜수</div>
-					<div class="bottom">출연작:<br>변호인(2013)<br> 관상(2013)<br> 설국열차(2013)<br>택시운전사(2017)<br>기생충(2022)</div>
+					<div class="bottom">출연작:<br>타짜(2006)<br> 도둑들(2012)<br> 관상(2013)<br>차이나타운(2017)<br>국가부도의 날(2018)</div>
 					<img src="https://dimg.donga.com/ugc/CDB/WOMAN/Article/5f/bc/5a/f0/5fbc5af006b7d2738de6.jpg">
 				</div>
 			</a>
@@ -270,7 +270,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 			<a href="">
 				<div class="screen">
 					<div class="top">김향기</div>
-					<div class="bottom">출연작:<br>변호인(2013)<br> 관상(2013)<br> 설국열차(2013)<br>택시운전사(2017)<br>기생충(2022)</div>
+					<div class="bottom">출연작:<br>바람과 함께 사라지다(2012)<br> 늑대소년(2012)<br> 신과함께-죄와 벌(2017)<br>신과함께-인과 연(2018)<br>한산: 용의 출현(2022)</div>
 					<img src="http://www.tvj.co.kr/news/photo/202112/67919_107194_41.jpg">
 				</div>
 			</a>
