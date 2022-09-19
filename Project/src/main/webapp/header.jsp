@@ -5,14 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel="stylesheet" href="CSS/all.css">
 <link rel="stylesheet" href="CSS/login.css">
 <script>
 function openWin(f,s) { adWindow=window.open(f,s,'width=600,height=600,status=no,scrollbars=auto'); }
 </script>
 </head>
+
 <style>
-input[id*="popup"] + label {position:absolute;top:3.2%;left:90%;transform:translate(-50%,-50%);} /* 예제파일 확인시 가운데 정렬 스타일 - 삭제 후 사용하세요 */
+input[id*="popup"] + label {position:absolute;top:25px;left:89%;transform:translate(-50%,-50%);} /* 예제파일 확인시 가운데 정렬 스타일 - 삭제 후 사용하세요 */
 * {padding:0;margin:0;line-height:1;} /* 기본 브라우저 리셋 스타일 */
 
 input[id*="popup"] {display:none;}
@@ -52,20 +53,28 @@ input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
       <li><a href="totalbox.jsp" >박스오피스</a></li><br><br>
       </ul>
 <ul class="ul1">
-      <li><a href="" >장르</a></li><br><br>
+      <li><a href="odan.jsp" >개봉시기</a></li><br><br>
       </ul>
 <ul class="ul1">
-      <li><a href="" >배우</a></li><br><br>
+      <li><a href="actor_all.jsp" >배우</a></li><br><br>
       </ul>
+<ul class="ul1">
+      <li><a href="word.jsp" >키워드</a></li><br><br>
+      </ul>      
+<ul class="ul1">
+      <li><a href="distributor.jsp" >배급사</a></li><br><br>
+      </ul>        
 </div>
 
   <div class="left">
     <ul class="ul1">
-      <li><a href="mainpage.jsp" >홈</a></li>
-      <li><a href="Revenue.jsp" >흥행예측</a></li>
-      <li><a href="totalbox.jsp" >박스오피스</a></li>
-      <li><a href="" >장르</a></li>
-      <li><a href="" >배우</a></li>
+      <li><a href="mainpage.jsp" >홈&nbsp;</a></li>
+      <li><a href="Revenue.jsp" >흥행예측&nbsp;</a></li>
+      <li><a href="totalbox.jsp" >박스오피스&nbsp;</a></li>
+      <li><a href="odan.jsp" >개봉시기&nbsp;</a></li>
+      <li><a href="actor_all.jsp" >배우&nbsp;</a></li>
+      <li><a href="word.jsp" >키워드&nbsp;</a></li>
+      <li><a href="distributor.jsp" >배급사&nbsp;</a></li>
       </ul>
   </div>
   <div class="right">
@@ -76,7 +85,7 @@ input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
   </div>
 </div>
 <input type="checkbox" id="popup">
-<label for="popup">로그인</label>
+<label for="popup" style="font-family: 'yg-jalnan'; font-size:20px;">로그인</label>
 <div>
 	<div>
 		<label for="popup"></label><br><br>

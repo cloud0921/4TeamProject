@@ -8,19 +8,19 @@
 </head>
 <style>
 
-li,a,h4{font-family: 'Black Han Sans', sans-serif;}
+
 /* 중앙정렬 코드- 삭제하고 사용하세요 */
 * {margin:0;padding:0;box-sizing:border-box;} /* 모든 요소 마진패딩 리셋 */
 /* 중앙정렬 코드-삭제하고 사용하세요 */
 
-.gallerylist {max-width:1400px;width:100%; margin:0 auto;}
+.gallerylist {max-width:1200px;width:100%; margin:0 auto;}
 .gallerylist > ul {font-size:0;}
 .gallerylist > ul > li {display:inline-block;vertical-align:top;width:20%;}
 .gallerylist > ul > li > a {display:block;width:auto;text-decoration: none;margin:5px;}
 .gallerylist > ul > li > a .screen {position:relative;overflow:hidden;}
-.gallerylist > ul > li > a .screen .top {position:absolute;bottom:150%;left:30px;z-index:2;color:#fff;font-size:26px;font-weight:900;transition:all .35s;}
+.gallerylist > ul > li > a .screen .top {position:absolute;bottom:150%;left:30px;z-index:2;color:#fff;font-size:23px;font-weight:900;transition:all .35s;}
 .gallerylist > ul > li > a .screen .bottom {position:absolute;top:150%;left:30px;z-index:2;color:#fff;font-size:13px;transition:all .35s;}
-.gallerylist > ul > li > a .screen img {width:300px; height:450px; }
+.gallerylist > ul > li > a .screen img {width:240px; height:340px; }
 .gallerylist > ul > li > a h3 {font-size:14px;text-align:center;padding:20px;color:#666;}
 .gallerylist > ul > li > a .screen::after {content:'';display:block;position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.5);z-index:1;opacity:0;transition:all .35s;}
 .gallerylist > ul > li > a:hover .top {bottom:52%;}
@@ -96,7 +96,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 			<a href="">
 				<div class="screen">
 					<div class="top">극한직업</div>
-					<div class="bottom">감독 : 이병헌<br>주연배우 : 류승룡 외<br>장르 : 코미디, 범죄, 액션, 느와르, 형사<br>대한민국 총관객수 : 16,266,338명</div>
+					<div class="bottom">감독 : 이병헌<br>주연배우 : 류승룡 외<br>장르 : 코미디, 범죄, 액션, 형사<br>대한민국 총관객수 : 16,266,338명</div>
 					<img src="https://web-cf-image.cjenm.com/crop/660x950/public/share/metamng/programs/extremejob-movie-poster-ko-001-01.jpg_1645638949085.jpg?v=1662031810">
 				</div>
 			</a>
@@ -104,7 +104,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 		<li>
 			<a href="">
 				<div class="screen">
-					<div class="top">신과 함께 | 죄와벌 |</div>
+					<div class="top">신과 함께 죄와 벌</div>
 					<div class="bottom">감독 : 김용화<br>주연배우 : 하정우 외<br>장르 : 판타지, 드라마<br>대한민국 총관객수 : 14,414,669명</div>
 					<img src="https://t1.daumcdn.net/cfile/blog/99493C405DA8957602">
 				</div>
@@ -123,7 +123,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 			<a href="">
 				<div class="screen">
 					<div class="top">어벤져스 엔드게임</div>
-					<div class="bottom">감독 : 앤서니 루소<br>주연배우 : 로버트 다우니 주니어 외<br>장르 :슈퍼히어로, SF, 액션, 어드벤처<br>대한민국 총관객수 : 13,977,602명</div>
+					<div class="bottom">감독 : 앤서니 루소<br>주연배우 : 로버트 다우니 주니어외<br>장르 :히어로, SF, 액션, 어드벤처<br>대한민국 총관객수 : 13,977,602명</div>
 					<img src="https://www.themoviedb.org/t/p/original/58D6muzcoc5JvFoVJvCyEafAiw0.jpg">
 				</div>
 			</a>
@@ -132,7 +132,7 @@ li,a,h4{font-family: 'Black Han Sans', sans-serif;}
 			<a href="">
 				<div class="screen">
 					<div class="top">겨울왕국2</div>
-					<div class="bottom">감독 : 크리스 벅<br>주연배우 : 크리스틴 벨 외<br>장르 : 애니메이션, 판타지, 가족, 어드벤처<br>대한민국 총관객수 : 13,747,792명</div>
+					<div class="bottom">감독 : 크리스 벅<br>주연배우 : 크리스틴 벨 외<br>장르 : 애니메이션,판타지, 어드벤처<br>대한민국 총관객수 : 13,747,792명</div>
 					<img src="https://mblogthumb-phinf.pstatic.net/MjAxOTExMThfMTA5/MDAxNTc0MDQyMTU0MTM2.aLdkq0vcYNMSpoi97y4J-uClTcW99q6Vtxaa2n55b0kg.grypjV-LpDvYxmb2pjjhBrCftqzsZVhs5F9YFQXlt5Qg.JPEG.good9194/IMG_4149.JPG?type=w800">
 				</div>
 			</a>

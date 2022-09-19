@@ -207,7 +207,7 @@
 
     <div type="fileinput"></div>
     <div id="entire_title_blank"></div><br>
-    <div id="entire_title"><b>영화 매출액 예측하기</b></div>
+    <div id="entire_title"><h2 style="font-size:30px;">영화 매출액 예측하기</h2></div>
     <div id="entire">
        <div id="graph">
           <div id="graph_blank_title"></div>

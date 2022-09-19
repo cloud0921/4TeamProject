@@ -2,31 +2,33 @@ package com.smhrd.model;
 
 public class MemberVO {
 	//한명에 대한 정보를 저장할 수 있는 자료형
-	private String userid;
+	private String id;
 	private String pwd;
 	private String name;
-	private String email;
+	private String idnum;
 	private String phone;
-	private int admin;
+	private String email;	
+	private String admin;
 	
-	public MemberVO(String id, String pw) {
-		this.userid = id;
-		this.pwd = pw;
+	public MemberVO(String id, String pwd) {
+		this.id = id;
+		this.pwd = pwd;
 	}
 	
 	//모든 데이터 초기화하는 생성자 만들기
-	public MemberVO(String userid, String pwd, String name, String email, String phone, int admin) {
-		this.userid = userid;
+	public MemberVO(String id, String pwd, String name,String idnum,String phone, String email, String admin) {
+		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
-		this.email = email;
+		this.idnum=idnum;
 		this.phone = phone;
+		this.email = email;
 		this.admin = admin;
 	}
 
 	//getter 메소드 만들기
 	public String getId() {
-		return userid;
+		return id;
 	}
 
 	public String getPwd() {
@@ -36,22 +38,19 @@ public class MemberVO {
 	public String getName() {
 		return name;
 	}
-	
-	public String getEmail() {
-		return email;
+	public String getidNum() {
+		return idnum;
 	}
 	
 	public String getPhone() {
 		return phone;
 	}
 	
-	public int getAdmin() {
+	public String getEmail() {
+		return email;
+	}
+
+	public String getAdmin() {
 		return admin;
 	}
-	@Override
-	public String toString() {
-		return this.name +"객체에 해당함";
-	}
-	//String.equals("문자열")
-	//객체 비교하기 위한 equals() 오버라이딩 구현
 }

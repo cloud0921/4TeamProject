@@ -8,33 +8,42 @@
 	Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	String url = "jdbc:mysql://localhost:3306/memberdb?"
+	String url = "jdbc:mysql://localhost:3306/4teamproject?"
 			      +"useUnicode=true&characterEncoding=utf-8";
 	String uid = "root";
 	String pass = "1234";
-	String sql = "select * from member";%>
+	String sql = "select * from registers where admin='0'";%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 <style>
-	table { width:600px; background:gray;}
+	table {background:gray; margin:0px auto;}
 	tr { background: white;}
-	td, th { cellpadding: 1px; }
+	td, th { cellpadding: 10px; }
 </style>
+<script>
+function allcheck(){
+	var repeat=document.getElementsByName("userid").length;
+	for(var i=0;i<repeat;i++){
+	    document.getElementsByName("userid")[i].checked=true;
+	}  
+}
+</script>
 </head>
 <body>
-<div style="width:650px;text-align:center">
+<div style="width:950px;text-align:center">
 <h3>회원 목록</h3>
-	<table>
+<form action = "OneMoreDelCheck.jsp" name="allMember" method="post">
+	<table border='1'>
 		<tr>
-			<th>이름</th>
+		    <th>체크</th>
 			<th>아이디</th>
 			<th>암호</th>
-			<th>이메일</th>
+			<th>이름</th>
 			<th>전화번호</th>
-			<th>권한<br>1:관리자<br>2:일반회원</th>
+			<th>이메일</th>
 		</tr>
 		<%
 			try {
@@ -43,13 +52,15 @@
 				stmt = conn.createStatement();
 				rs = stmt.executeQuery(sql);
 				while (rs.next()) {
+					String userid=rs.getString("id");
 					out.println("<tr>");
-					out.println("<td>" + rs.getString("name") + "</td>");
-					out.println("<td>" + rs.getString("userid") + "</td>");
-					out.println("<td>" + rs.getString("pwd") + "</td>");
-					out.println("<td>" + rs.getString("email") + "</td>");
-					out.println("<td>" + rs.getString("phone") + "</td>");
-					out.println("<td>" + rs.getInt("admin") + "</td>");
+					out.print("<td><input type='checkbox' name='userid' value=");
+					out.print(userid+"></td>"); 
+					out.println("<td style='width:120px'>" + userid + "</td>");
+					out.println("<td style='width:150px'>" + rs.getString("pwd") + "</td>");
+					out.println("<td style='width:80px'>" + rs.getString("name") + "</td>");
+					out.println("<td style='width:120px'>" + rs.getString("phone") + "</td>");
+					out.println("<td style='width:210px'>" + rs.getString("email") + "</td>");					
 					out.println("</tr>");
 				}//while의 끝
 			} catch (Exception e) {
@@ -68,7 +79,13 @@
 			}//finally의 끝
 		%>
 	</table>
-
+	<br><input type="button" value="모두선택" onclick="allcheck()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="reset" value="모두해제">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="submit" value="삭제">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	    <input type="button" value="창닫기" onclick="javascript:window.close()">
+</form>
 </div>
 </body>
 </html>
+
+

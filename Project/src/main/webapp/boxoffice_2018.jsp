@@ -92,7 +92,7 @@ input[id="menuicon1"]:checked + ul + div {right:0;}
             while (rs.next()) {
                out.println("<tr>");
                out.println("<td>" + "<img src='" + rs.getString("포스터")+ "'>"+"</td>");
-               out.println("<td>"+"영화명 : " + rs.getString("영화명")+"<br><br>" +"장르 : " + rs.getString("장르")+"<br><br>" + "개봉일 : " + rs.getString("개봉일")+"<br><br>"+ "누적 매출액 : " + rs.getString("누적매출액")+"원"+"<br><br>" + "누적관계수 : "  +rs.getString("누적관객수")+"명"+"<br><br>"+"감독 : "+ rs.getString("감독")+"<br><br>" +"배우 : "  +rs.getString("배우")+"<br><br>" +"</td>");
+               out.println("<td>"+"영화명 : " + rs.getString("영화명")+"<br><br>" +"장르 : " + rs.getString("장르")+"<br><br>" + "개봉일 : " + rs.getString("개봉일")+"<br><br>"+ "누적 매출액 : " + rs.getString("누적매출액")+"원"+"<br><br>" + "누적관객수 : "  +rs.getString("누적관객수")+"명"+"<br><br>"+"감독 : "+ rs.getString("감독")+"<br><br>" +"배우 : "  +rs.getString("배우")+"<br><br>" +"</td>");
         
                out.println("</tr>");
             }//while의 끝
@@ -103,7 +103,6 @@ input[id="menuicon1"]:checked + ul + div {right:0;}
                if (rs != null)
                   rs.close();
                if (stmt != null)
-                  stmt.close();
                if (conn != null)
                   conn.close();
             } catch (Exception e) {

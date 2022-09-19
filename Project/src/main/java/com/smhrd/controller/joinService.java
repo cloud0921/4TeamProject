@@ -2,8 +2,8 @@ package com.smhrd.controller;
 
 import java.io.IOException;
 
+import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,41 +14,54 @@ import javax.servlet.http.HttpSession;
 import com.smhrd.model.DAO;
 import com.smhrd.model.MemberVO;
 
-
 @WebServlet("/joinService")
 public class joinService extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-
+       
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// 1. 데이터 받기, 한글 포함될 경우 인코딩 방식 지정
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=utf-8");
+		//1. 데이터 가져오기
+		String userid = request.getParameter("id_hidden");
+		int hidden_id=Integer.parseInt(request.getParameter("hidden_num"));
 		
+		String pwd = request.getParameter("checked_pwd");
+		int hidden_pwd=Integer.parseInt(request.getParameter("pwd_num"));
 		
-		String name =request.getParameter("name");
-		String pwd =request.getParameter("pwd");
-		String email =request.getParameter("email");
-		String userid =request.getParameter("userid");
-		String phone =request.getParameter("phone");
-		int admin =Integer.parseInt(request.getParameter("admin"));
+		String name = request.getParameter("name");
 		
+		String idnum1=request.getParameter("hidden_mem_num1");
+		String idnum2=request.getParameter("hidden_mem_num2");
+		String idnum=idnum1+"-"+idnum2;
+		int disabled=Integer.parseInt(request.getParameter("hidden"));
 		
-		//2. 전송된 회원 데이터를 객체에 담기
-		MemberVO member=new MemberVO(userid, pwd,name,email,phone,admin);
+		String phone1 = request.getParameter("phone_num1");
+		String phone2 = request.getParameter("phone_num2");
+		String phone3 = request.getParameter("phone_num3");
+		String phone = phone1+"-"+phone2+"-"+phone3;
+		
+		String email_name=request.getParameter("mem_name");
+		String email_domain= request.getParameter("mem_email_domain");
+		String email=email_name+"@"+email_domain;
+		
+		String admin = "0";
+		PrintWriter out=response.getWriter();
+		
+		MemberVO vo=new MemberVO(userid,pwd,name,idnum,phone,email,admin);
 		DAO dao = new DAO();
-		int result = dao.join(member);
-		//3. request 객체 속성값에 member 등록하고 데이터를 View로 전달
-		if(result>0) {
-			//insert 성공
-			request.setAttribute("userid", userid);//session을 requset로 바꿈 교수님은
-			request.setAttribute("message", "회원가입 성공");
-			String url="mainpage.jsp";
-			RequestDispatcher dispatcher = request.getRequestDispatcher(url);
-			dispatcher.forward(request, response);
+		if (disabled==0 || hidden_id==0 || hidden_pwd==0) {
+			response.sendRedirect("joinFail.jsp");
 		}else {
-			//insert 실패
-			response.sendRedirect("main.jsp");
+			int result=dao.join(vo); 
+			if(result==1) {
+			   response.sendRedirect("joinSuccess.jsp");
+			}else {
+			   response.sendRedirect("joinFail.jsp");
+			}
 		}
 		
+		
+		
+	  }
 	}
-}
+

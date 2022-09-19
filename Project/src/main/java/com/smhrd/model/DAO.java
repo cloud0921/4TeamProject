@@ -1,7 +1,8 @@
 package com.smhrd.model;
 
-import java.lang.reflect.Member;
 import java.sql.Connection;
+
+
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -20,10 +21,11 @@ public class DAO {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			// 2. DB연결
-			String url = "jdbc:mysql://localhost:3306/memberdb?"
+			String url = "jdbc:mysql://localhost:3306/4teamproject?"
 				      +"useUnicode=true&characterEncoding=utf-8";
 			String id = "root";
 			String pw = "1234";
+			System.out.println("success");
 			conn = DriverManager.getConnection(url, id, pw);
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -49,7 +51,7 @@ public class DAO {
 		}
 
 	}
-	
+		
 	//3. 회원정보를 데이타베이스에 저장하는 메소드 생성
 	/**
 	 * MemberVO 자료형을 매개변수로 받아서 
@@ -61,29 +63,30 @@ public class DAO {
 	 * */
 	public int join(MemberVO vo) {   //joinService.jsp에서 join() 호출할 때 멤버 객체 전달
 		//코드 구현
-		int result=0;
+		
 		try {
-	         getConn();
-	         String sql = "insert into member values(?, ?, ?, ?, ?, ?)";
-	         psmt = conn.prepareStatement(sql);
-	         //(4 단계) 바인딩 변수를 채운다.
-	         psmt.setString(1, vo.getName());
-	         psmt.setString(2, vo.getId());
-	         psmt.setString(3, vo.getPwd());
-	         psmt.setString(4, vo.getEmail());
-	         psmt.setString(5, vo.getPhone());
-	         psmt.setInt(6, vo.getAdmin());
-	         //(5단계) SQL문을 실행하여 결과 처리
-	         
-	         result=psmt.executeUpdate();
-	      } catch (Exception e) {
-	         e.printStackTrace();
-	         return 0;
-	      } finally {
-	         //(6단계) 사용한 리소스 해제
-	         getClose();
-	      }
-		  return result;
+			getConn();
+			String sql = "insert into registers values(?,?,?,?,?,?,?)";
+			psmt = conn.prepareStatement(sql);
+			//(4 단계) 바인딩 변수를 채운다.
+			psmt.setString(1, vo.getId());
+			psmt.setString(2, vo.getPwd());
+			psmt.setString(3, vo.getName());
+			psmt.setString(4, vo.getidNum());
+			psmt.setString(5, vo.getPhone());
+			psmt.setString(6, vo.getEmail());
+			psmt.setString(7, vo.getAdmin());
+			//(5단계) SQL문을 실행하여 결과 처리
+			psmt.executeUpdate();
+			return 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		} finally {
+			//(6단계) 사용한 리소스 해제
+			getClose();
+		}
+
 
 
 	}
@@ -94,7 +97,7 @@ public class DAO {
 		try {
 			getConn();
 			//조건에 맞는 데이터가 member에 있는지 확인
-			String sql = "Select * from member where userid=? and pwd=?";
+			String sql = "Select * from registers where id=? and pwd=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, vo.getId());
 			psmt.setString(2, vo.getPwd());
@@ -103,14 +106,15 @@ public class DAO {
 			if(rs.next()) {	//member 테이블에 해당 데이터가 있다면
 				//rs에서는 데이터를 꺼낼때
 				//커서가 가리키는 데이터만 가져올 수 있다.
-				String id = rs.getString("userid");
+				String id = rs.getString("id");
 				String pwd = rs.getString("pwd");
 				String name = rs.getString("name");
-				String email = rs.getString("email");
+				String idnum = rs.getString("idnum");
 				String phone = rs.getString("phone");
-				int admin = rs.getInt("admin");
+				String email = rs.getString("email");
+				String admin = rs.getString("admin");
 				
-				result = new MemberVO(id, pwd, name, email, phone, admin);
+				result = new MemberVO(id, pwd, name,idnum, phone,email, admin);
 			}
 			
 		} catch (SQLException e) {
@@ -121,4 +125,26 @@ public class DAO {
 		}
 		return result;
 	}
+	
+	public String DeleteName(String id) {
+		String name=null;
+		try {
+			getConn();
+			String sql="Select * from registers where id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			rs = psmt.executeQuery();
+			if(rs.next()) {
+				String result = rs.getString("name");
+				name=result;
+			}	
+		}catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			getClose();
+		}
+		return name;
+	}
 }
+
