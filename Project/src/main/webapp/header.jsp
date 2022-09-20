@@ -1,3 +1,4 @@
+<%@page import="com.smhrd.model.MemberVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,12 +9,17 @@
 <link rel="stylesheet" href="CSS/all.css">
 <link rel="stylesheet" href="CSS/login.css">
 <script>
-function openWin(f,s) { adWindow=window.open(f,s,'width=600,height=600,status=no,scrollbars=auto'); }
+function openWin(f,s) { adWindow=window.open(f,s,'width=680,height=600,status=no,scrollbars=auto'); }
+function openMember() {
+	window.open("allMember.jsp","_blank",'width=950,height=600,top=50,left=300,status=no,scrollbars=auto'); 
+	}
 </script>
 </head>
-
 <style>
-input[id*="popup"] + label {position:absolute;top:25px;left:89%;transform:translate(-50%,-50%);} /* 예제파일 확인시 가운데 정렬 스타일 - 삭제 후 사용하세요 */
+.ul1>li{color:white;}
+.blank{width:8px;}
+
+input[id*="popup"] + label {position:absolute;top:3.35%;left:89%;transform:translate(-50%,-50%);} /* 예제파일 확인시 가운데 정렬 스타일 - 삭제 후 사용하세요 */
 * {padding:0;margin:0;line-height:1;} /* 기본 브라우저 리셋 스타일 */
 
 input[id*="popup"] {display:none;}
@@ -29,18 +35,24 @@ input[id*="popup"]:checked + label + div {display:block;}
 
 input[id*="popup"] + label + div {opacity:0;visibility:hidden;transition:all 1s;}
 input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
-
+label{font-family: 'yg-jalnan'; font-size:20px;}
 
 </style>
 
 <body>
-<div id="header"> 
-      <input type="checkbox" id="menuicon">
-<label for="menuicon">
-	<span></span>
-	<span></span>
-	<span></span>
-</label>
+<%
+MemberVO result = (MemberVO)session.getAttribute("info");
+if (result==null){%>
+
+	<div id="header"> 
+     <input type="checkbox" id="menuicon">
+     <label for="menuicon">
+	 <span></span>
+	 <span></span>
+	 <span></span>
+    </label>
+
+
 
 <div class="sidebar"><br><br><br><br><br><br><br><br>
 <ul class="ul1">
@@ -66,6 +78,9 @@ input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
       </ul>        
 </div>
 
+
+
+
   <div class="left">
     <ul class="ul1">
       <li><a href="mainpage.jsp" >홈&nbsp;</a></li>
@@ -77,41 +92,168 @@ input[id*="popup"]:checked + label + div {opacity:1;visibility:visible;}
       <li><a href="distributor.jsp" >배급사&nbsp;</a></li>
       </ul>
   </div>
-  <div class="right">
-    <ul  class="ul1">
-      <li><a href="" ></a></li>
-      <li><a href="javascript:openWin('join.jsp','0')" >회원가입</a></li>
+
+
+
+
+	<div class="right">
+	  <ul  class="ul1">
+	    <li><a href="" ></a></li>
+	    <li><a href="javascript:openWin('join.jsp','0')" >회원가입</a></li>
+	    </ul>
+	</div>
+	
+	</div> <!-- id=header -->
+
+
+    <input type="checkbox" id="popup">
+    <label for="popup">로그인</label>
+    <div>
+	<div>
+		<label for="popup"></label><br><br>				
+      <div style="text-align:center;">
+          <h2>Login</h2>
+     </div>
+      <form action="LoginService" method="post">
+          <div class="input-box">
+              <input id="username" type="text" name="userid" placeholder="아이디">
+              <label for="username" class="a">아이디</label>
+          </div>
+          <div class="input-box">
+              <input id="password" type="password" name="pwd" placeholder="비밀번호">
+              <label for="password" class="a">비밀번호</label>
+          </div>
+          <input type="submit" value="로그인">
+      </form>		            
+	</div>
+	<label for="popup"></label>				
+</div>
+<%}//if(result==null) 
+  else if(result!=null){
+	//2)VO 안의 닉네임 가져오기
+    String admin=result.getAdmin();
+	String name = result.getName();%>
+	<%if(admin.equals("0")){%>
+		<div id="header"> 
+      	<input type="checkbox" id="menuicon">
+		<label for="menuicon">
+			<span></span>
+			<span></span>
+			<span></span>
+		</label>
+		
+		
+		
+		<div class="sidebar"><br><br><br><br><br><br><br><br>
+<ul class="ul1">
+      <li><a href="mainpage.jsp" >홈</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="Revenue.jsp" >흥행예측</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="totalbox.jsp" >박스오피스</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="odan.jsp" >개봉시기</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="actor_all.jsp" >배우</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="word.jsp" >키워드</a></li><br><br>
+      </ul>      
+<ul class="ul1">
+      <li><a href="distributor.jsp" >배급사</a></li><br><br>
+      </ul>        
+</div>
+		
+		
+		
+		
+		  <div class="left">
+    <ul class="ul1">
+      <li><a href="mainpage.jsp" >홈&nbsp;</a></li>
+      <li><a href="Revenue.jsp" >흥행예측&nbsp;</a></li>
+      <li><a href="totalbox.jsp" >박스오피스&nbsp;</a></li>
+      <li><a href="odan.jsp" >개봉시기&nbsp;</a></li>
+      <li><a href="actor_all.jsp" >배우&nbsp;</a></li>
+      <li><a href="word.jsp" >키워드&nbsp;</a></li>
+      <li><a href="distributor.jsp" >배급사&nbsp;</a></li>
       </ul>
   </div>
+		  
+		    <div class="left">
+		      <ul  class="ul1">
+		        <li><b><%=name %>님</b></li>
+		        <li class="blank"><a href=""></a></li>
+		        <li><a href="UPdateTable.jsp">개인정보</a></li>
+		        <li class="blank"></li>
+		        <li><a href="logout.jsp">로그아웃</a></li>
+		      </ul>
+		    </div>		  
+	    </div>
+	
+	<%}else if(admin.equals("1")){
+		%><div id="header"> 
+	      <input type="checkbox" id="menuicon">
+		  <label for="menuicon">
+			  <span></span>
+			  <span></span>
+			  <span></span>
+		  </label>
+		
+		
+		
+	      <div class="sidebar"><br><br><br><br><br><br><br><br>
+<ul class="ul1">
+      <li><a href="mainpage.jsp" >홈</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="Revenue.jsp" >흥행예측</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="totalbox.jsp" >박스오피스</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="odan.jsp" >개봉시기</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="actor_all.jsp" >배우</a></li><br><br>
+      </ul>
+<ul class="ul1">
+      <li><a href="word.jsp" >키워드</a></li><br><br>
+      </ul>      
+<ul class="ul1">
+      <li><a href="distributor.jsp" >배급사</a></li><br><br>
+      </ul>        
 </div>
-<input type="checkbox" id="popup">
-<label for="popup" style="font-family: 'yg-jalnan'; font-size:20px;">로그인</label>
-<div>
-	<div>
-		<label for="popup"></label><br><br>
-        <div style="text-align:center;">
-            <h2>Login</h2>
-       </div>
 
-        <form action="LoginService" method="post">
 
-            <div class="input-box">
-                <input id="username" type="text" name="userid" placeholder="아이디">
-                <label for="username" class="a">아이디</label>
-            </div>
+		 <div class="left">
+    <ul class="ul1">
+      <li><a href="mainpage.jsp" >홈&nbsp;</a></li>
+      <li><a href="Revenue.jsp" >흥행예측&nbsp;</a></li>
+      <li><a href="totalbox.jsp" >박스오피스&nbsp;</a></li>
+      <li><a href="odan.jsp" >개봉시기&nbsp;</a></li>
+      <li><a href="actor_all.jsp" >배우&nbsp;</a></li>
+      <li><a href="word.jsp" >키워드&nbsp;</a></li>
+      <li><a href="distributor.jsp" >배급사&nbsp;</a></li>
+      </ul>
+  </div>
 
-            <div class="input-box">
-                <input id="password" type="password" name="pwd" placeholder="비밀번호">
-                <label for="password" class="a">비밀번호</label>
-            </div>
-            <input type="submit" value="로그인">
-        </form>		
+	  
+		  <div class="left">
+		    <ul  class="ul1">
+		      <li><b><%=name %>님</b></li>
+		      <li class="blank"></li>     
+		      <li><a href="javascript:openMember()">회원관리</a></li>
+		      <li class="blank"></li>
+		      <li><a href="logout.jsp">로그아웃</a></li>
+		      </ul>
+		  </div>
 	</div>
-	<label for="popup"></label>
-</div>
-
-
-
-
+	<%}	  
+ }%>
 </body>
 </html>

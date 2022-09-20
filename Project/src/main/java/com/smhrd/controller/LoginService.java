@@ -41,12 +41,8 @@ public class LoginService extends HttpServlet {
 			//3)웹브라우저 요청에 대한 정보가 담긴 request로 부터 session을 꺼내와야 한다.
 			HttpSession session = request.getSession();
 			session.setAttribute("info", result);
+			response.sendRedirect("mainpage.jsp");
 			
-			if(admin.equals("1")) {
-				response.sendRedirect("mainpageLoginedOP.jsp");
-			}else {
-				response.sendRedirect("mainpageLogined.jsp");
-			}
 			
 		}else {
 			//실패

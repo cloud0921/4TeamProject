@@ -6,6 +6,7 @@
 <meta charset="EUC-KR">
 <title>배급사</title>
 </head>
+<link rel="stylesheet" href="CSS/all.css">
 <style>
 * {margin:0; padding:0;}
 .accordion {position:relative;top:30%;left:50%;transform:translateX(-50%);width:1000px;text-align:center;}

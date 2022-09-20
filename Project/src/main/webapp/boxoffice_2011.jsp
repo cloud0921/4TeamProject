@@ -14,7 +14,7 @@
 <style>
    table { width:800px; background:gray; margin:auto; border-collapse:collapse; }
    .list{width:1600px;}
-   tr { background: white; border-bottom:1px solid  rgb(105,34,38);}
+   tr { background: white; border-bottom:1px solid rgb(105,34,38);}
    td, th { cellpadding: 1px;}
    th{height:50px;}
    td:nth-child(1){width:200px; height:400px;}
@@ -95,6 +95,7 @@ input[id="menuicon1"]:checked + ul + div {right:0;}
                out.println("<td>"+"영화명 : " + rs.getString("영화명")+"<br><br>" +"장르 : " + rs.getString("장르")+"<br><br>" + "개봉일 : " + rs.getString("개봉일")+"<br><br>"+ "누적 매출액 : " + rs.getString("누적매출액")+"원"+"<br><br>" + "누적관객수 : "  +rs.getString("누적관객수")+"명"+"<br><br>"+"감독 : "+ rs.getString("감독")+"<br><br>" +"배우 : "  +rs.getString("배우")+"<br><br>" +"</td>");
         
                out.println("</tr>");
+              
             }//while의 끝
          }catch (Exception e) {
             e.printStackTrace();
